@@ -12,24 +12,24 @@ public class Marcador extends GRect{
 
 	GLabel texto = new GLabel("");
 	int puntuacion = 0;
-	
+
 	public Marcador(double width, double height) {
 		super(width, height);
 		setFilled(true);
 		setFillColor(Color.BLACK);
 		texto.setLabel("Marcador");
-		texto.setColor(Color.RED);
-		texto.setFont(new Font("Arkanoid solid", Font.BOLD, 25));
+		texto.setColor(Color.WHITE);
+		texto.setFont(new Font("iomanoid.ttf", Font.BOLD, 25));
 	}
 	//suma el nº de puntos que se indica en la variable puntos 
 	//a la puntuacion actual
 	public void incrementaMarcador(int puntos){
 		puntuacion = puntuacion + puntos; // puntuacion += puntos;
-		texto.setLabel("" + puntuacion);
+		texto.setLabel("Marcador =" + puntuacion);
 	}
-	
+
 	public void addMarcador(Arkanoid arkanoid){
-		arkanoid.add(this, arkanoid.getWidth() - 120, 20);
-		arkanoid.add(texto, arkanoid.getWidth() - 120, 40);
+		arkanoid.add(this, arkanoid.getWidth() - 170, 20);
+		arkanoid.add(texto, arkanoid.getWidth() - 170, 40);
 	}
 }

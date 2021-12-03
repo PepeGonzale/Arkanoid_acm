@@ -6,8 +6,8 @@ import acm.graphics.GImage;
 import acm.graphics.GRect;
 
 public class Cursor extends GImage{
-	
-public Cursor(String name) {
+
+	public Cursor(String name) {
 		super(name);
 	}
 
@@ -16,9 +16,9 @@ public Cursor(String name) {
 			setLocation(posX, getY());
 		}
 	}
-private void add(Cursor miCursor2, int i, int j, int k, int l) {
-		
-		
+	private void add(Cursor miCursor2, int i, int j, int k, int l) {
+
+
 	}
 
 }

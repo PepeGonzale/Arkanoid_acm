@@ -14,6 +14,6 @@ public class Ladrillo extends GImage {
 
 
 
-	
-	
+
+
 }

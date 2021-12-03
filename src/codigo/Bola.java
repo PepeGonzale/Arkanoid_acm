@@ -8,17 +8,17 @@ import acm.graphics.GOval;
 public class Bola extends GOval{
 	int dx = 1; //velocidad en el eje x
 	int dy = 1; //velocidad en el eje y
-	
+
 	public Bola(double width, double height) {
 		super(width, height);	
 	}
-	
+
 	public Bola(double width, double height, Color c) {
 		super(width, height);
 		this.setFillColor(Color.RED);
 		this.setFilled(true);
 	}
-	
+
 	public void muevete(Arkanoid ark){
 		//rebote con el suelo y rebote con el techo
 		if (getY() > ark.getHeight() || getY() < 10){
@@ -29,13 +29,13 @@ public class Bola extends GOval{
 		if (getX()+getWidth() > ark.ANCHO_PANTALLA - 30 || getX() < 10){
 			dx = dx * -1;
 		}
-		
+
 		//chequeo la esquina superior izquierda de la bola
 		if (chequeaColision(getX(),	getY(), ark) ){
 			if (chequeaColision(getX() + getWidth(), getY(), ark) ){
 				if (chequeaColision(getX(),	getY()+getHeight(), ark) ){
 					if (chequeaColision(getX()+getWidth(), getY()+getHeight(), ark) ){
-						
+
 					}
 				}
 			}
@@ -44,18 +44,18 @@ public class Bola extends GOval{
 		//mueve la bola en la dirección correcta
 		this.move(dx,dy);
 	}
-	
+
 	private boolean chequeaColision(double posx, double posy, Arkanoid ark){
 		boolean noHaChocado = true;
 		GObject auxiliar;
-		
+
 		auxiliar = ark.getElementAt(posx, posy);
-		
+
 		if (auxiliar == ark.miCursor){ //si entra aquí es que choca con el cursor
 			dy = dy * -1;
 			noHaChocado = false;
 		}else if (auxiliar == null){ //si vale null es que no había nada ahi
-			
+
 		}else if (auxiliar instanceof Ladrillo){ //si es un ladrillo
 			if (auxiliar.getX() + getWidth() >= posx || auxiliar.getX() <= posx){
 				dx = dx * -1;
@@ -67,10 +67,10 @@ public class Bola extends GOval{
 			ark.remove(auxiliar);//borro el ladrillo
 			noHaChocado = false;
 		}
-			
-		
-		
+
+
+
 		return noHaChocado;
 	}
-	
+
 }
